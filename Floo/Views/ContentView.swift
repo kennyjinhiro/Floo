@@ -11,10 +11,16 @@ struct URLImage: View{
     let url_image:String
     @State var data: Data?
     var body: some View{
-        if let data = data{
+        if let data = data, let uiimage = UIImage(data: data){
+            Image(uiImage: uiimage)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .layoutPriority(-1).background(Color.gray)
+            
             
         }else{
-            Image("").frame(width: 150, height: 150).background(Color.gray).onAppear{
+            Image(systemName: "None")
+                .resizable().aspectRatio(contentMode: .fit).frame(width: 150, height: 150).background(Color.gray).onAppear{
                 fetchData()
             }
         }
@@ -24,6 +30,7 @@ struct URLImage: View{
             return
         }
         let task = URLSession.shared.dataTask(with: url){data, _, _ in self.data = data}
+        task.resume()
     }
 }
 
@@ -36,13 +43,18 @@ struct ContentView: View {
         NavigationView{
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.results, id: \.self){ recipe in VStack{
-                        Image("")
-                        Text(recipe.title)
-                            .multilineTextAlignment(.leading)
-                            
+                    ForEach(viewModel.results, id: \.self){ recipe in ZStack{
+                        URLImage(url_image: recipe.image)
+                            .padding(3)
+                        VStack {
+                            Spacer()
+                            Text(recipe.title)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(Color.white)
                         }
-                    }
+                    }.clipped()
+                            .aspectRatio(1, contentMode: .fit)
+                            .border(Color.red)
                 }
             }.navigationTitle("Explore Recipes")
         }.onAppear{
