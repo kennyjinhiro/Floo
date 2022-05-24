@@ -13,11 +13,7 @@ struct URLImage: View{
     var body: some View{
         if let data = data, let uiimage = UIImage(data: data){
             Image(uiImage: uiimage)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .layoutPriority(-1).background(Color.gray)
-            
-            
+                .resizable().aspectRatio(contentMode: .fill).frame(width: 150, height: 150).background(Color.gray)
         }else{
             Image(systemName: "None")
                 .resizable().aspectRatio(contentMode: .fit).frame(width: 150, height: 150).background(Color.gray).onAppear{
@@ -43,18 +39,15 @@ struct ContentView: View {
         NavigationView{
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.results, id: \.self){ recipe in ZStack{
+                    ForEach(viewModel.results, id: \.self){ recipe in VStack{
                         URLImage(url_image: recipe.image)
                             .padding(3)
-                        VStack {
-                            Spacer()
-                            Text(recipe.title)
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .background(Color.white)
+                        Text(recipe.title)
+                            .font(.body)
+                            .multilineTextAlignment(.leading)
+                            
                         }
-                    }.clipped()
-                            .aspectRatio(1, contentMode: .fit)
-                            .border(Color.red)
+                    }.padding(10)
                 }
             }.navigationTitle("Explore Recipes")
         }.onAppear{
