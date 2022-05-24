@@ -13,10 +13,16 @@ struct URLImage: View{
     var body: some View{
         if let data = data, let uiimage = UIImage(data: data){
             Image(uiImage: uiimage)
-                .resizable().aspectRatio(contentMode: .fill).frame(width: 150, height: 150).background(Color.gray)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: cardAndImageWidth, height: imageHeight).cornerRadius(5)
+                .clipped()
         }else{
             Image(systemName: "None")
-                .resizable().aspectRatio(contentMode: .fit).frame(width: 150, height: 150).background(Color.gray).onAppear{
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: cardAndImageWidth, height: imageHeight)
+                .clipped().background(Color.gray).onAppear{
                 fetchData()
             }
         }
@@ -28,6 +34,10 @@ struct URLImage: View{
         let task = URLSession.shared.dataTask(with: url){data, _, _ in self.data = data}
         task.resume()
     }
+    private let cardAndImageWidth: CGFloat = 170
+    private let cardHeight: CGFloat = 170
+    private let imageHeight: CGFloat = 170
+    private let cornerRadius: CGFloat = 5
 }
 
 struct ContentView: View {
@@ -39,21 +49,36 @@ struct ContentView: View {
         NavigationView{
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.results, id: \.self){ recipe in VStack{
-                        URLImage(url_image: recipe.image)
-                            .padding(3)
-                        Text(recipe.title)
-                            .font(.body)
-                            .multilineTextAlignment(.leading)
-                            
-                        }
-                    }.padding(10)
+                    ForEach(viewModel.results, id: \.self){ recipe in
+                        ZStack {
+                                RoundedRectangle(cornerRadius: cornerRadius)
+                                    .strokeBorder(SwiftUI.Color.white, lineWidth: 1)
+                                    .frame(width: cardAndImageWidth, height: cardHeight)
+                                    .background(SwiftUI.Color.white)
+                                VStack(alignment: .leading) {
+                                    URLImage(url_image: recipe.image)
+                                    Text(recipe.title)
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(3).font(.system(size: 14, weight: .bold))
+
+                                    .padding(.bottom,12)
+                                }
+                                .frame(width: cardAndImageWidth, height: cardHeight)
+                                .cornerRadius(cornerRadius)
+                        }.padding(4)
+                    }
                 }
             }.navigationTitle("Explore Recipes")
         }.onAppear{
                 viewModel.fetch()
         }.searchable(text: $search_var)
+        
+        
     }
+    private let cardAndImageWidth: CGFloat = 170
+    private let cardHeight: CGFloat = 240
+    private let imageHeight: CGFloat = 170
+    private let cornerRadius: CGFloat = 5
 }
 
 
