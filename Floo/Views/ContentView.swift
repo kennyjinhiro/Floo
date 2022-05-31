@@ -60,7 +60,6 @@ struct ContentView: View {
                                     Text(recipe.title)
                                         .multilineTextAlignment(.leading)
                                         .lineLimit(3).font(.system(size: 14, weight: .bold))
-
                                     .padding(.bottom,12)
                                 }
                                 .frame(width: cardAndImageWidth, height: cardHeight)

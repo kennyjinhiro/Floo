@@ -12,6 +12,9 @@ class ViewModel: ObservableObject{
     @Published var recipes: Recipe?
     @Published var results: [Result] = []
     
+    func getRecipe(searchTerm: String) async throws -> [Recipe]{
+        
+    }
     func fetch(){
         guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?apiKey=\(ApiKey.apiKey)")else{
             print("Does not work")
