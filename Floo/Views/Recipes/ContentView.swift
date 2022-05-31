@@ -55,13 +55,11 @@ struct ContentView: View {
                                     .strokeBorder(SwiftUI.Color.white, lineWidth: 1)
                                     .frame(width: cardAndImageWidth, height: cardHeight)
                                     .background(SwiftUI.Color.white)
-                                VStack(alignment: .leading) {
-                                    URLImage(url_image: recipe.image)
-                                    Text(recipe.title)
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(3).font(.system(size: 14, weight: .bold))
-                                    .padding(.bottom,12)
-                                }
+                                NavigationLink{
+                                    RecipeDetail()
+                                } label:{
+                                    RecipeCard(recipe: recipe)
+                                }.tag(recipe)
                                 .frame(width: cardAndImageWidth, height: cardHeight)
                                 .cornerRadius(cornerRadius)
                         }.padding(4)
