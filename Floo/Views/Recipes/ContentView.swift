@@ -7,44 +7,15 @@
 
 import SwiftUI
 
-struct URLImage: View{
-    let url_image:String
-    @State var data: Data?
-    var body: some View{
-        if let data = data, let uiimage = UIImage(data: data){
-            Image(uiImage: uiimage)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: cardAndImageWidth, height: imageHeight).cornerRadius(5)
-                .clipped()
-        }else{
-            Image(systemName: "None")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: cardAndImageWidth, height: imageHeight)
-                .clipped().background(Color.gray).onAppear{
-                fetchData()
-            }
-        }
-    }
-    private func fetchData(){
-        guard let url = URL(string: url_image) else{
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url){data, _, _ in self.data = data}
-        task.resume()
-    }
-    private let cardAndImageWidth: CGFloat = 170
-    private let cardHeight: CGFloat = 170
-    private let imageHeight: CGFloat = 170
-    private let cornerRadius: CGFloat = 5
-}
-
 struct ContentView: View {
     @State private var search_var = ""
     @StateObject var viewModel = ViewModel()
     let columns = [GridItem(),
                    GridItem()]
+    private let cardAndImageWidth: CGFloat = 170
+    private let cardHeight: CGFloat = 240
+    private let imageHeight: CGFloat = 170
+    private let cornerRadius: CGFloat = 5
     var body: some View {
         NavigationView{
             ScrollView {
@@ -56,12 +27,13 @@ struct ContentView: View {
                                     .frame(width: cardAndImageWidth, height: cardHeight)
                                     .background(SwiftUI.Color.white)
                                 NavigationLink{
-                                    RecipeDetail()
+                                    RecipeDetail(recipe: recipe)
                                 } label:{
                                     RecipeCard(recipe: recipe)
                                 }.tag(recipe)
                                 .frame(width: cardAndImageWidth, height: cardHeight)
                                 .cornerRadius(cornerRadius)
+                                .buttonStyle(PlainButtonStyle())
                         }.padding(4)
                     }
                 }
@@ -72,10 +44,6 @@ struct ContentView: View {
         
         
     }
-    private let cardAndImageWidth: CGFloat = 170
-    private let cardHeight: CGFloat = 240
-    private let imageHeight: CGFloat = 170
-    private let cornerRadius: CGFloat = 5
 }
 
 
