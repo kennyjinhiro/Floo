@@ -42,7 +42,14 @@ struct RecipeExplore: View {
         }.onAppear{
                 viewModel.fetch()
         }.searchable(text: $search_var)
-        
+        .onSubmit(of: .search) {
+            viewModel.search(query: search_var)
+        }
+        .onChange(of: search_var) { search in
+            if (search.isEmpty) {
+                viewModel.fetch()
+            }
+        }
         
     }
 }
