@@ -12,7 +12,6 @@ struct RecipeDetail: View {
     @State var recipe: Result
 //    @State var recipe: Result
     @StateObject var viewModel = DetailViewModel()
-
     var body: some View {
         NavigationView{
             ScrollView {
@@ -56,7 +55,7 @@ struct RecipeDetail: View {
                                 .cornerRadius(5.0)
                             VStack(alignment: .leading, spacing: 10) {
                                 HStack(spacing: 2){
-                                    Text(String(viewModel.detailedRecipe?.nutrition?.nutrients?[0].amount ?? 0.0)).font(.title2).fontWeight(.bold).multilineTextAlignment(.leading).padding(.trailing, 12.0)
+                                    Text(String(viewModel.detailedRecipe?.nutrition?.nutrients?[0].amount ?? 0.0)).font(.title2).fontWeight(.bold).multilineTextAlignment(.leading).padding(.trailing, 12.0).foregroundColor(Color.darkred)
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text("Calcium")
                                             .fontWeight(.bold)
@@ -82,7 +81,7 @@ struct RecipeDetail: View {
                             VStack(alignment: .leading, spacing: 10) {
                                 HStack(spacing: 2){
                                     Text(String(viewModel.detailedRecipe?.nutrition?.nutrients?[3].amount ?? 0.0)).font(.title2).fontWeight(.bold).multilineTextAlignment(.leading)
-                                        .padding(.trailing)
+                                        .padding(.trailing).foregroundColor(Color.lightergreen)
                                     
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text("Carbo")
@@ -105,12 +104,12 @@ struct RecipeDetail: View {
                         RoundedRectangle(cornerRadius: 5.0)
                                 .strokeBorder(SwiftUI.Color.white, lineWidth: 0)
                                 .frame(width: 190.0, height: 70.0)
-                                .background(Color.maroon)
+                                .background(Color.purple)
                                 .cornerRadius(5.0)
                             VStack(alignment: .leading, spacing: 10) {
                                 HStack(spacing: 2){
                                     Text(String(viewModel.detailedRecipe?.nutrition?.nutrients?[8].amount ?? 0.0)).font(.title2).fontWeight(.bold).multilineTextAlignment(.leading)
-                                        .padding(.trailing)
+                                        .padding(.trailing).foregroundColor(Color.lightpurple)
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text("Protein")
                                             .fontWeight(.bold)
@@ -131,12 +130,12 @@ struct RecipeDetail: View {
                         RoundedRectangle(cornerRadius: 5.0)
                                 .strokeBorder(SwiftUI.Color.white, lineWidth: 0)
                                 .frame(width: 190.0, height: 70.0)
-                                .background(Color.lightgreen)
+                                .background(Color.blue)
                                 .cornerRadius(5.0)
                             VStack(alignment: .leading, spacing: 10) {
                                 HStack(spacing: 2){
                                     Text(String(viewModel.detailedRecipe?.nutrition?.nutrients?[21].amount ?? 0.0)).font(.title2).fontWeight(.bold).multilineTextAlignment(.leading)
-                                        .padding(.trailing)
+                                        .padding(.trailing).foregroundColor(Color.lighterblue)
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text("Calcium")
                                             .fontWeight(.bold)
@@ -184,9 +183,9 @@ struct RecipeDetail: View {
             }.onAppear{viewModel.fetch_detail(id: index)}
             .padding(.top, -200)
             .navigationBarHidden(true)
-        
+            
             }
-        }
+        }.accentColor(.black)
 //
     }
 }
@@ -218,4 +217,9 @@ extension Color{
     static let maroon = Color("Maroon")
     static let lightgreen = Color("LightGreen")
     static let purple = Color("Purple")
+    static let blue = Color("Blue")
+    static let darkred = Color("DarkRed")
+    static let lightergreen = Color("LighterGreen")
+    static let lightpurple = Color("LightPurple")
+    static let lighterblue = Color("LighterBlue")
 }
