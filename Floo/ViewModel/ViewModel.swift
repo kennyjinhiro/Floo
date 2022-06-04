@@ -42,4 +42,27 @@ class ViewModel: ObservableObject{
         
     }
     
+    func search(query: String){
+        guard let url = URL(string: "https://api.spoonacular.com/recipes/complexSearch?apiKey=\(ApiKey.apiKey)&query=\(query)")else{
+            print("Does not work")
+            return}
+        
+        let task = URLSession.shared.dataTask(with: url){[weak self] data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            
+            //Decode to JSON
+            do{
+                let recipes = try JSONDecoder().decode(Recipe.self, from: data)
+                DispatchQueue.main.async {
+                    self?.results = recipes.results
+                }
+            }catch{
+                print("JSON Catch Recipe")
+            }
+        }
+        
+        task.resume()
+    }
 }

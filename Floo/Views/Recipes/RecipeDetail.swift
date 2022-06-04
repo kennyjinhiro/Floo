@@ -35,7 +35,8 @@ struct RecipeDetail: View {
                         
                         Spacer()
                         
-                        //hati
+                       
+                    
                     }
                     Text(viewModel.detailedRecipe?.summary?.trimHTMLTags() ?? "")
                         .padding(.top, 4.0)

@@ -36,4 +36,6 @@ class DetailViewModel: ObservableObject{
         task.resume()
 
     }
+    
+    
 }
