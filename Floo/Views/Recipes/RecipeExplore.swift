@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RecipeExplore: View {
     @State private var search_var = ""
     @StateObject var viewModel = ViewModel()
     let columns = [GridItem(),
@@ -26,8 +26,9 @@ struct ContentView: View {
                                     .strokeBorder(SwiftUI.Color.white, lineWidth: 1)
                                     .frame(width: cardAndImageWidth, height: cardHeight)
                                     .background(SwiftUI.Color.white)
+//                            Text(String(recipe.id))
                                 NavigationLink{
-                                    RecipeDetail(recipe: recipe)
+                                    RecipeDetail(index: recipe.id, recipe: recipe)
                                 } label:{
                                     RecipeCard(recipe: recipe)
                                 }.tag(recipe)
@@ -47,8 +48,8 @@ struct ContentView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
+struct RecipeExplore_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RecipeExplore()
     }
 }

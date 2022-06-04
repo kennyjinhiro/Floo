@@ -12,12 +12,15 @@ struct RecipeCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            URLImage(url_image: recipe.image, cardAndImageWidth: 170, cardHeight: 170, imageHeight: 170, cornerRadius: 5)
+            AsyncImage(url: URL(string: recipe.image))
+                .frame(width: 170, height: 170).cornerRadius(5)
             Text(recipe.title)
-                .multilineTextAlignment(.leading)
+                .multilineTextAlignment(.center)
                 .lineLimit(3).font(.system(size: 14, weight: .bold))
-            .padding(.bottom,12)
-        }
+                .padding(.bottom,24.00)
+                .frame(width: 170, height: 90)
+            
+        }.frame(width: 170, height: 280)
     }
 }
 

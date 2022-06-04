@@ -12,6 +12,7 @@ class ViewModel: ObservableObject{
     @Published var recipes: Recipe?
     @Published var results: [Result] = []
     
+    
 //    func getRecipe(searchTerm: String) async throws -> [Recipe]{
 //
 //    }
@@ -33,11 +34,12 @@ class ViewModel: ObservableObject{
                     self?.recipes = recipes
                 }
             }catch{
-                print("JSON Catch")
+                print("JSON Catch Recipe")
             }
         }
         
         task.resume()
         
     }
+    
 }
