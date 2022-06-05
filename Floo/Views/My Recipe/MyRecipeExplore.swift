@@ -26,7 +26,15 @@ struct MyRecipeExplore: View {
                 }.padding(.top, 12)
                 Text("Saved Recipes").font(.title2).fontWeight(.bold).multilineTextAlignment(.leading)
                 ScrollView(.horizontal){
-                    
+                    HStack{
+                        ForEach(viewModel.my_recipes, id: \.self) { recipe in
+                            NavigationLink {
+                                MyRecipeDetail(recipe: recipe)
+                            } label: {
+                                MyRecipeExploreCard(recipe: recipe)
+                            }
+                        }
+                    }
                 }.padding(.top, 12)
                 Spacer()
                 NavigationLink{
@@ -43,6 +51,7 @@ struct MyRecipeExplore: View {
             .navigationTitle("My Recipes")
             .onAppear{
                 viewModel.fetch_favorite()
+                viewModel.fetch_saved_recipes()
             }
         }
     }

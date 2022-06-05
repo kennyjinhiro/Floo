@@ -10,6 +10,7 @@ import Foundation
 class MyRecipeViewModel: ObservableObject{
     @Published var fav_recipes: [DetailedRecipe] = []
     @Published var recipe_favorite_id: [Int] = []
+    @Published var my_recipes: [DetailedRecipe] = []
     func fetch_favorite(){
         
         var query_bulk_ids = ""
@@ -56,5 +57,16 @@ class MyRecipeViewModel: ObservableObject{
         
         task.resume()
         
+    }
+    
+    func fetch_saved_recipes () {
+        let decoder = JSONDecoder()
+        if let data = UserDefaults.standard.value(forKey: "saved_recipe") as? Data {
+            let taskData = try? decoder.decode([DetailedRecipe].self, from: data)
+            my_recipes = taskData ?? []
+        } else {
+           my_recipes = []
+        }
+        print("My Recipes: ", my_recipes)
     }
 }

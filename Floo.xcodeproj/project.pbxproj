@@ -12,6 +12,7 @@
 		847A3E73284CBEE100E10CEB /* MyRecipeExploreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E72284CBEE100E10CEB /* MyRecipeExploreCard.swift */; };
 		847A3E77284CD3AE00E10CEB /* MyRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E76284CD3AE00E10CEB /* MyRecipeViewModel.swift */; };
 		847A3E79284CF43D00E10CEB /* MyRecipeAddRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E78284CF43D00E10CEB /* MyRecipeAddRecipe.swift */; };
+		847A3E7B284D349700E10CEB /* MyRecipeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E7A284D349700E10CEB /* MyRecipeDetail.swift */; };
 		84EE5DC7283B3D56005864C1 /* FlooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5DC6283B3D56005864C1 /* FlooApp.swift */; };
 		84EE5DC9283B3D56005864C1 /* RecipeExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5DC8283B3D56005864C1 /* RecipeExplore.swift */; };
 		84EE5DCB283B3D57005864C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EE5DCA283B3D57005864C1 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		847A3E72284CBEE100E10CEB /* MyRecipeExploreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeExploreCard.swift; sourceTree = "<group>"; };
 		847A3E76284CD3AE00E10CEB /* MyRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeViewModel.swift; sourceTree = "<group>"; };
 		847A3E78284CF43D00E10CEB /* MyRecipeAddRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeAddRecipe.swift; sourceTree = "<group>"; };
+		847A3E7A284D349700E10CEB /* MyRecipeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeDetail.swift; sourceTree = "<group>"; };
 		84EE5DC3283B3D56005864C1 /* Floo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Floo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EE5DC6283B3D56005864C1 /* FlooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlooApp.swift; sourceTree = "<group>"; };
 		84EE5DC8283B3D56005864C1 /* RecipeExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeExplore.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				847A3E6E284CA2D300E10CEB /* MyRecipeExplore.swift */,
 				847A3E72284CBEE100E10CEB /* MyRecipeExploreCard.swift */,
 				847A3E78284CF43D00E10CEB /* MyRecipeAddRecipe.swift */,
+				847A3E7A284D349700E10CEB /* MyRecipeDetail.swift */,
 			);
 			path = "My Recipe";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				847A3E79284CF43D00E10CEB /* MyRecipeAddRecipe.swift in Sources */,
 				84EE5DEF2845B1BC005864C1 /* RecipeDetail.swift in Sources */,
 				84EE5DC9283B3D56005864C1 /* RecipeExplore.swift in Sources */,
+				847A3E7B284D349700E10CEB /* MyRecipeDetail.swift in Sources */,
 				84EE5DDF283BF0EF005864C1 /* Debug.swift in Sources */,
 				84EE5DC7283B3D56005864C1 /* FlooApp.swift in Sources */,
 				847A3E68284B777000E10CEB /* HeartButton.swift in Sources */,

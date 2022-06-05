@@ -8,169 +8,174 @@
 import SwiftUI
 
 struct MyRecipeAddRecipe: View {
-    @State private var name:String = ""
-    @State private var description:String = ""
-    @State private var nationality:String = ""
+//    @State private var name:String = ""
+    @Environment(\.presentationMode) var presentationMode
+    @State private var title:String = ""
+    @State private var summary:String = ""
     @State private var calories:String = ""
-    @State private var carbo:String = ""
-    @State private var protein:String = ""
-    @State private var fat:String = ""
-    @State private var amountIngredients: [String] = []
-    @State private var nameIngredients: [String] = []
-    @State private var unitIngredients: [String] = []
-    
-    
+    @State private var carbohydrates:String = ""
+    @State private var proteins:String = ""
+    @State private var calcium:String = ""
+    @State private var idName: [String] = [""]
+    @State private var idAmount: [String] = [""]
+    @State private var idUnit: [String] = [""]
+    @State private var instructions: [String] = [""]
     var body: some View {
-    ScrollView {
-        VStack {
-        Text("Add Recipe")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .padding([.top, .leading])
-                .frame(maxWidth: .infinity, alignment: .leading)
-        
-            VStack {
-                VStack {
+//        NavigationView{
+            ScrollView{
+                VStack(alignment: .leading){
+                    Group{
                     Text("General")
-                        .font(.title)
-                        .fontWeight(.medium)
-                        .padding(.leading, 25.0)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                TextField("Name", text: $name)
-                        .padding(.horizontal, 30).padding(.trailing, 20)
-                Divider()
-                 .padding(.horizontal, 30)
-                
-                TextField("Description", text: $description)
-                        .padding(.horizontal, 30).padding([.top, .trailing], 20)
-                    
-                Divider()
-                 .padding(.horizontal, 30)
-                
-//                TextField("Nationality / Origin", text: $nationality)
-//                        .padding(.horizontal, 30).padding([.top, .trailing], 20)
-//                Divider()
-//                 .padding(.horizontal, 30)
-                
-                }
-                .padding(.top)
-                
-                
-                VStack {
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                        .padding(.top)
+                    TextField("Recipe Title", text: $title).padding(.top,12)
+                    Divider()
+                    TextField("Recipe Summary", text: $summary).padding(.top, 24)
+                    Divider()
+                    }
+                    Group{
                     Text("Nutritions")
-                        .font(.title)
-                        .fontWeight(.medium)
-                        .padding(.leading, 25.0)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("Calories (Kcal)", text: $calories)
-                        .padding(.horizontal, 30)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                        .padding(.top, 24)
+                    TextField("Calories (kCal)", text: $calories).padding(.top,12)
                     Divider()
-                     .padding(.horizontal, 30)
-                    
-                    TextField("Carbohydrates (Gram)", text: $carbo)
-                        .padding(.horizontal, 30).padding([.top, .trailing], 20)
+                    TextField("Carbohydrates (gram)", text: $carbohydrates).padding(.top, 24)
                     Divider()
-                     .padding(.horizontal, 30)
-                    
-                    TextField("Protein (Gram)", text: $protein)
-                        .padding(.horizontal, 30).padding([.top, .trailing], 20)
+                    TextField("Protein (gram)", text: $proteins).padding(.top, 24)
                     Divider()
-                     .padding(.horizontal, 30)
-                    TextField("Fat (Gram)", text: $fat)
-                        .padding(.horizontal, 30).padding([.top, .trailing], 20)
+                    TextField("Calcium (gram)", text: $calcium).padding(.top, 24)
                     Divider()
-                     .padding(.horizontal, 30)
-                }
-                .padding(.vertical)
-                
-                
-                
-                VStack {
-                    Text("Ingredients")
-                        .font(.title)
-                        .fontWeight(.medium)
-                        .padding(.leading, 25.0)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    ForEach(0..<amountIngredients.count, id: \.self) {i in
-                    HStack {
-                        TextField("Ingredient \(i+1)", text: $nameIngredients[i])
-                            .padding(.leading, 20.0)
-                        VStack {
-                        TextField("Amount", text: $amountIngredients[i])
-                           .font(/*@START_MENU_TOKEN@*/.footnote/*@END_MENU_TOKEN@*/)
-                        TextField("Unit", text: $unitIngredients[i])
-                           .font(/*@START_MENU_TOKEN@*/.footnote/*@END_MENU_TOKEN@*/)
-                                
-                        }
                     }
-                }
-                    Button{
-                        unitIngredients.append("")
-                        amountIngredients.append("")
-                        nameIngredients.append("")
-                    }label : {
-                        Text("Add More Ingredients")
-                    }
-                    .padding(.all, 15.0)
-                    .frame(maxWidth: 240, alignment: .center)
-                    .font(.system(size: 16))
-                    .foregroundColor(.white)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 0.541, saturation: 0.997, brightness: 1.0)/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(10)
-                    .padding(.all, 15.0)
-                    
-                    
-                    Button{
-                        var myRecipes: [DetailedRecipe] = [DetailedRecipe]()
-                        var recipe:DetailedRecipe = DetailedRecipe()
-                        recipe.title = name
-                        recipe.summary = description
-                        recipe.nutrition = Nutrition()
-                        recipe.extendedIngredients = [ExtendedIngredient]()
-                        recipe.nutrition?.nutrients = [Flavonoid]()
-                        recipe.nutrition?.nutrients?[0].amount = Double(calories)
-                        recipe.nutrition?.nutrients?[3].amount = Double(carbo)
-                        recipe.nutrition?.nutrients?[8].amount = Double(protein)
-                        recipe.nutrition?.nutrients?[1].amount = Double(fat)
-                        for (i,ingredient) in nameIngredients.enumerated() {
-                         var ingredientTemp = ExtendedIngredient()
-                            ingredientTemp.name = ingredient
-                            ingredientTemp.unit = unitIngredients[i]
-                            ingredientTemp.amount = Double(amountIngredients[i])
-                            recipe.extendedIngredients?.append(ingredientTemp)
+                    Group{
+                        Text("Ingredients")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .padding(.top, 24)
+                        ForEach(0..<idName.count, id: \.self) { idx in
+                            HStack {
+                                TextField("Ingredient \(idx + 1)", text: $idName[idx])
+                                Divider()
+                                TextField("Amount", text: $idAmount[idx])
+                                Divider()
+                                TextField("Unit", text: $idUnit[idx])
+                            }
+                            Divider().padding(.top, 12)
                         }
-                        let decoder = JSONDecoder()
-                        if let data = UserDefaults.standard.value(forKey: "recipes") as? Data {
-                                    let taskData = try? decoder.decode([DetailedRecipe].self, from: data)
-                                    myRecipes = taskData ?? []
-                                } else {
-                                    myRecipes = []
-                                }
-                        myRecipes.append(recipe)
-                        let encoder = JSONEncoder()
-                        if let encoded = try? encoder.encode(myRecipes) {
-                            UserDefaults.standard.set(encoded, forKey: "recipes")
-                     }
-
+                        Button {
+                            self.idName.append("")
+                            self.idAmount.append("")
+                            self.idUnit.append("")
+                        } label: {
+                            HStack{
+                                Spacer()
+                                Text("Add More Ingredients").fontWeight(.bold).foregroundColor(Color.white)
+                                Spacer()
+                            }
+                        }.padding(.all, 16).background(Color.blue).frame(height: 42, alignment: .center).cornerRadius(8.0).padding(.bottom, 24)
+                            .padding(.top, 12)
+                    }
+                    Group{
+                        Text("Instructions")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .padding(.top, 24)
+                        ForEach(0..<instructions.count, id: \.self) { idx in
+                            HStack {
+                                TextField("Instruction \(idx + 1)", text: $instructions[idx])
+                                    
+                            }
+                            Divider().padding(.top, 12)
+                        }
+                        Button {
+                            self.instructions.append("")
+                        }label: {
+                            HStack{
+                                Spacer()
+                                Text("Add More Instruction").fontWeight(.bold).foregroundColor(Color.white)
+                                Spacer()
+                            }
+                        }.padding(.all, 16).background(Color.blue).frame(height: 42, alignment: .center).cornerRadius(8.0).padding(.bottom, 24)
+                            .padding(.top, 12)
+                        Button {
+//                            @State private var title:String = ""
+//                            @State private var summary:String = ""
+//                            @State private var calories:String = ""
+//                            @State private var carbohydrates:String = ""
+//                            @State private var proteins:String = ""
+//                            @State private var calcium:String = ""
+//                            @State private var idName: [String] = [""]
+//                            @State private var idAmount: [String] = [""]
+//                            @State private var idUnit: [String] = [""]
+//                            @State private var instructions: [String] = [""]
+                            var recipe: DetailedRecipe = DetailedRecipe()
+                            var my_recipes: [DetailedRecipe] = []
+                            recipe.title = title
+                            recipe.summary = summary
+                            recipe.nutrition = Nutrition()
+                            recipe.extendedIngredients = [ExtendedIngredient]()
+                            recipe.nutrition?.nutrients = [Flavonoid](repeating: Flavonoid(), count: 22)
+                            recipe.analyzedInstructions = [AnalyzedInstruction](repeating: AnalyzedInstruction(), count: 1)
+                            recipe.analyzedInstructions?[0].steps = [Step]()
+                            recipe.nutrition?.nutrients?[0].amount = Double(calories)
+                            recipe.nutrition?.nutrients?[3].amount = Double(carbohydrates)
+                            recipe.nutrition?.nutrients?[8].amount = Double(proteins)
+                            recipe.nutrition?.nutrients?[21].amount = Double(calcium)
+                            recipe.image = "https://www.pngmagic.com/product_images/gray-texture-background-hd-images.jpg"
+                            for (idx,ingredient) in idName.enumerated() {
+                             var temp = ExtendedIngredient()
+                                temp.name = ingredient
+                                temp.amount = Double(idAmount[idx])
+                                temp.unit = idUnit[idx]
+                                recipe.extendedIngredients?.append(temp)
+                            }
+                            for instruction in instructions {
+                            
+                                var temp = Step()
+                                temp.step = instruction
+                            recipe.analyzedInstructions?[0].steps?.append(temp)
+                            }
+                            let decoder = JSONDecoder()
+                            if let data = UserDefaults.standard.value(forKey: "saved_recipe") as? Data {
+                                        let taskData = try? decoder.decode([DetailedRecipe].self, from: data)
+                                        my_recipes = taskData ?? []
+                                    } else {
+                                        my_recipes = []
+                                    }
+                            let id = my_recipes.count + 1 ?? 999999999
+                            recipe.id = id + 1
+                            my_recipes.append(recipe)
+                            let encoder = JSONEncoder()
+                            if let encoded = try? encoder.encode(my_recipes) {
+                                UserDefaults.standard.set(encoded, forKey: "saved_recipe")
+                            }
+                            self.presentationMode.wrappedValue.dismiss()
+                        }label:{
+                            HStack{
+                                Spacer()
+                                Text("Submit").fontWeight(.bold).foregroundColor(.white)
+                                Spacer()
+                            }
+                        }.padding(.all, 16).background(Color.blue).frame(height: 42, alignment: .center).cornerRadius(8.0).padding(.bottom, 24)
+                            .padding(.top, 12)
                         
                         
-                    }label : {
-                        Text("Submit Recipe")
+                        
+//                        .background(Color.blue).padding(.horizontal).frame(height: 42, alignment: .center).cornerRadius(8)
+//                            .padding(.top, 12)
+                        
+                            
                     }
-                    .padding(.all, 15.0)
-                    .frame(maxWidth: 240, alignment: .center)
-                    .font(.system(size: 16))
-                    .foregroundColor(.white)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 0.541, saturation: 0.997, brightness: 1.0)/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(10)
-                    .padding(.all, 15.0)
-    
-                }
-                
-            }
-        }
-            
+                    
+                }.navigationTitle("Add Recipes")
+                    .padding()
+//                    .padding(.top, -100)
+//            }
         }
     }
 }
