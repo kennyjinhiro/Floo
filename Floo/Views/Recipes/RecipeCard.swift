@@ -17,7 +17,7 @@ struct RecipeCard: View {
             Text(recipe.title)
                 .multilineTextAlignment(.center)
                 .lineLimit(3).font(.system(size: 14, weight: .bold))
-                .padding(.bottom,24.00)
+                .padding(.bottom,48.00)
                 .frame(width: 170, height: 90)
             
         }.frame(width: 170, height: 280)

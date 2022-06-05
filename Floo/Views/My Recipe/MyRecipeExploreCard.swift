@@ -15,10 +15,10 @@ struct MyRecipeExploreCard: View {
             AsyncImage(url: URL(string: recipe.image ?? "")){image in
                 image
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 170, height:  170)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 160, height:  240)
                     .cornerRadius(5)
-                    .scaledToFit()
+                    .brightness(-0.1)
                     .overlay(alignment: .center){
                         ImageOverlay(text: recipe.title ?? "Error")
                     }
@@ -43,11 +43,12 @@ struct ImageOverlay: View {
     var body: some View {
         ZStack {
             Text(text)
-                .font(.callout)
+                .fontWeight(.bold)
                 .padding(6)
                 .foregroundColor(.white)
-        }.background(Color.black)
-        .opacity(0.8)
+                
+        }
+        .opacity(1)
         .cornerRadius(10.0)
         .padding(6)
     }

@@ -12,7 +12,7 @@ struct MyRecipeExplore: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .leading, spacing: 16){
-                Text("Favourites").font(.title2).fontWeight(.bold).multilineTextAlignment(.leading)
+                Text("Favourites").font(.title2).fontWeight(.bold).multilineTextAlignment(.leading).padding(.top,12)
                 ScrollView(.horizontal){
                     HStack{
                         ForEach(viewModel.fav_recipes, id: \.self) { recipe in
