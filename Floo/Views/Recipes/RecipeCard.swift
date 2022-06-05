@@ -16,11 +16,11 @@ struct RecipeCard: View {
                 .frame(width: 170, height: 170).cornerRadius(5)
             Text(recipe.title)
                 .multilineTextAlignment(.center)
-                .lineLimit(3).font(.system(size: 14, weight: .bold))
+                .lineLimit(4).font(.system(size: 14, weight: .bold))
                 .padding(.bottom,48.00)
                 .frame(width: 170, height: 90)
             
-        }.frame(width: 170, height: 280)
+        }.frame(width: 170, height: 260)
     }
 }
 
