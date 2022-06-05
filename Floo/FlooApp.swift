@@ -11,7 +11,21 @@ import SwiftUI
 struct FlooApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipeExplore()
+//            RecipeExplore()
+            TabView {
+                RecipeExplore()
+                    .tabItem {
+                        Image(systemName: "safari.fill")
+                            .renderingMode(.template)
+                        Text("Explore")
+                    }
+                MyRecipeExplore()
+                    .tabItem {
+                        Image(systemName: "fork.knife")
+                            .renderingMode(.template)
+                        Text("My Recipes")
+                    }
+            }.accentColor(.black)
         }
     }
 }

@@ -10,6 +10,7 @@
 		847A3E68284B777000E10CEB /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E67284B777000E10CEB /* HeartButton.swift */; };
 		847A3E6F284CA2D300E10CEB /* MyRecipeExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E6E284CA2D300E10CEB /* MyRecipeExplore.swift */; };
 		847A3E71284CABC900E10CEB /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E70284CABC900E10CEB /* FavoriteViewModel.swift */; };
+		847A3E73284CBEE100E10CEB /* MyRecipeExploreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E72284CBEE100E10CEB /* MyRecipeExploreCard.swift */; };
 		84EE5DC7283B3D56005864C1 /* FlooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5DC6283B3D56005864C1 /* FlooApp.swift */; };
 		84EE5DC9283B3D56005864C1 /* RecipeExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5DC8283B3D56005864C1 /* RecipeExplore.swift */; };
 		84EE5DCB283B3D57005864C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EE5DCA283B3D57005864C1 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		847A3E67284B777000E10CEB /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
 		847A3E6E284CA2D300E10CEB /* MyRecipeExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeExplore.swift; sourceTree = "<group>"; };
 		847A3E70284CABC900E10CEB /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		847A3E72284CBEE100E10CEB /* MyRecipeExploreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeExploreCard.swift; sourceTree = "<group>"; };
 		84EE5DC3283B3D56005864C1 /* Floo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Floo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EE5DC6283B3D56005864C1 /* FlooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlooApp.swift; sourceTree = "<group>"; };
 		84EE5DC8283B3D56005864C1 /* RecipeExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeExplore.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				847A3E6E284CA2D300E10CEB /* MyRecipeExplore.swift */,
+				847A3E72284CBEE100E10CEB /* MyRecipeExploreCard.swift */,
 			);
 			path = "My Recipe";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				847A3E6F284CA2D300E10CEB /* MyRecipeExplore.swift in Sources */,
 				84EE5DE6283C62FD005864C1 /* ApiKey.swift in Sources */,
 				84FE18FC284928310075DC36 /* DetailViewModel.swift in Sources */,
+				847A3E73284CBEE100E10CEB /* MyRecipeExploreCard.swift in Sources */,
 				84EE5DED2845AE1E005864C1 /* RecipeCard.swift in Sources */,
 				84EE5DDD283BEB20005864C1 /* ViewModel.swift in Sources */,
 				84EE5DD9283BDD9B005864C1 /* Recipe.swift in Sources */,

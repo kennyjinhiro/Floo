@@ -9,9 +9,23 @@ import SwiftUI
 
 struct MyRecipeExplore: View {
     var body: some View {
-        VStack{
-            
-        }
+        NavigationView{
+            VStack(alignment: .leading, spacing: 16){
+                Text("Favourites").font(.title2).fontWeight(.bold).multilineTextAlignment(.leading)
+                ScrollView(.horizontal){
+                    
+                }.padding(.top, 12)
+                Text("Saved Recipes").font(.title2).fontWeight(.bold).multilineTextAlignment(.leading)
+                ScrollView(.horizontal){
+                    
+                }.padding(.top, 12)
+//                NavigationLink{
+//
+//                }
+            }.padding(.horizontal)
+                .padding(.leading, 4)
+            .navigationTitle("My Recipes")
+        }.padding(.horizontal)
     }
 }
 
