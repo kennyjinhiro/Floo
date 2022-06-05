@@ -73,6 +73,13 @@
 			path = "My Recipe";
 			sourceTree = "<group>";
 		};
+		847A3E7C284D3C5700E10CEB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		84EE5DBA283B3D55005864C1 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +131,7 @@
 		84EE5DDA283BE347005864C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				847A3E7C284D3C5700E10CEB /* Profile */,
 				847A3E6D284CA2C000E10CEB /* My Recipe */,
 				84EE5DE92845ADAA005864C1 /* Recipes */,
 			);

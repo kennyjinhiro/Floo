@@ -126,7 +126,8 @@ struct MyRecipeAddRecipe: View {
                             recipe.nutrition?.nutrients?[3].amount = Double(carbohydrates)
                             recipe.nutrition?.nutrients?[8].amount = Double(proteins)
                             recipe.nutrition?.nutrients?[21].amount = Double(calcium)
-                            recipe.image = "https://www.pngmagic.com/product_images/gray-texture-background-hd-images.jpg"
+                            var image_random:[String] = ["https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg", "https://images.theconversation.com/files/368263/original/file-20201109-22-lqiq5c.jpg?ixlib=rb-1.1.0&rect=10%2C0%2C6699%2C4476&q=45&auto=format&w=926&fit=clip","https://quizizz.com/_media/questions/d4625bf8-21a3-4ac8-a0c5-799957945510_900_900"]
+                            recipe.image = image_random[Int.random(in: 0..<4)]
                             for (idx,ingredient) in idName.enumerated() {
                              var temp = ExtendedIngredient()
                                 temp.name = ingredient
