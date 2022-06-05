@@ -24,7 +24,7 @@ struct RecipeDetail: View {
                     default: Color.gray // <-- here
                     }
                 }.frame(width: 428, height: 280, alignment: .topLeading).cornerRadius(5)
-                VStack(alignment: .leading) {
+                    VStack(alignment: .leading) {
                     HStack{
                         Text(viewModel.detailedRecipe?.title ?? "")
                             .font(.title2)
@@ -188,7 +188,8 @@ struct RecipeDetail: View {
                     }
                 
                     Spacer()
-                }
+                    }
+                    .padding(.horizontal)
             }.onAppear{viewModel.fetch_detail(id: index)}
             .padding(.top, -200)
             .navigationBarHidden(true)
