@@ -35,8 +35,16 @@ struct RecipeDetail: View {
                         
                         Spacer()
                         
-                       
-                    
+                       //hati
+                        Image(systemName: viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) ? "heart.fill" : "heart")
+                        .foregroundColor(viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) ? .pink : .gray)
+                        .padding(.top)
+                        .padding(.trailing, 32)
+                        .frame(width: 70.0, height: 70.0)
+                        .onTapGesture {
+                            (viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) == false) ? viewModel.add_favorite(id: viewModel.detailedRecipe?.id ?? 0) : viewModel.remove_favorite(id: viewModel.detailedRecipe?.id ?? 0)
+                           
+                        }
                     }
                     Text(viewModel.detailedRecipe?.summary?.trimHTMLTags() ?? "")
                         .padding(.top, 4.0)
