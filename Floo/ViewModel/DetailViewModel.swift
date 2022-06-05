@@ -7,7 +7,7 @@
 
 import Foundation
 class DetailViewModel: ObservableObject{
-    
+    @Published var favorite: Bool = false
     @Published var detailedRecipe: DetailedRecipe?
     @Published var nutrients: [Flavonoid] = []
     @Published var recipe_id: [Int] = []
@@ -29,6 +29,23 @@ class DetailViewModel: ObservableObject{
                     self?.detailedRecipe = detailedRecipe
                     print(detailedRecipe)
                 }
+                
+                //Decoded data = array
+                let decoder = JSONDecoder()
+                if let data = UserDefaults.standard.value(forKey: "recipe_id") as? Data {
+                    let decodedData = try? decoder.decode([Int].self, from: data)
+                    self?.recipe_id = decodedData ?? []
+                } else {
+                    self?.recipe_id = []
+                }
+                
+//                for i in vehicleList?._embedded.userVehicles ?? [] { }
+                for id in self?.recipe_id ?? []  {
+                    if (id == self?.detailedRecipe?.id) {
+                        self?.favorite = true
+                    }
+                }
+                
             }catch{
                 print("JSON Catch DetailedRecipe")
             }

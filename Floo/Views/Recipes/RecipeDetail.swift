@@ -10,6 +10,7 @@ import SwiftUI
 struct RecipeDetail: View {
     @State var index: Int
     @State var recipe: Result
+    @State private var favorite: Bool = false
 //    @State var recipe: Result
     @StateObject var viewModel = DetailViewModel()
     var body: some View {
@@ -36,15 +37,23 @@ struct RecipeDetail: View {
                         Spacer()
                         
                        //hati
-                        Image(systemName: viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) ? "heart.fill" : "heart")
-                        .foregroundColor(viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) ? .pink : .gray)
-                        .padding(.top)
-                        .padding(.trailing, 32)
-                        .frame(width: 70.0, height: 70.0)
-                        .onTapGesture {
-                            (viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) == false) ? viewModel.add_favorite(id: viewModel.detailedRecipe?.id ?? 0) : viewModel.remove_favorite(id: viewModel.detailedRecipe?.id ?? 0)
-                           
-                        }
+                        HeartButton(isSet: $viewModel.favorite)
+                            .onChange(of: viewModel.favorite) {bool in
+                                if bool {
+                                    viewModel.add_favorite(id: viewModel.detailedRecipe!.id!)
+                                } else {
+                                    viewModel.remove_favorite(id: viewModel.detailedRecipe!.id!)
+                                }
+                            }.padding(.top)
+                            .padding(.trailing, 32)
+//                        Image(systemName: viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) ? "heart.fill" : "heart")
+//                        .foregroundColor(viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) ? .pink : .gray)
+                        
+//                        .frame(width: 70.0, height: 70.0)
+//                        .onTapGesture {
+//                            (viewModel.contain_favorite(id: viewModel.detailedRecipe?.id ?? 0) == false) ? viewModel.add_favorite(id: viewModel.detailedRecipe?.id ?? 0) : viewModel.remove_favorite(id: viewModel.detailedRecipe?.id ?? 0)
+//
+//                        }
                     }
                     Text(viewModel.detailedRecipe?.summary?.trimHTMLTags() ?? "")
                         .padding(.top, 4.0)

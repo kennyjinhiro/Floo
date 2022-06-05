@@ -7,7 +7,7 @@ A button that acts as a favorites indicator.
 
 import SwiftUI
 
-struct FavoriteButton: View {
+struct HeartButton: View {
     @Binding var isSet: Bool
 
     var body: some View {
@@ -21,8 +21,8 @@ struct FavoriteButton: View {
     }
 }
 
-struct FavoriteButton_Previews: PreviewProvider {
+struct HeartButton_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteButton(isSet: .constant(true))
+        HeartButton(isSet: .constant(true))
     }
 }
