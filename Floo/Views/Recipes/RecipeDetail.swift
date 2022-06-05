@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetail: View {
     @State var index: Int
-    @State var recipe: Result
+//    @State var recipe: Result
     @State private var favorite: Bool = false
 //    @State var recipe: Result
     @StateObject var viewModel = DetailViewModel()
@@ -212,7 +212,7 @@ struct RecipeDetail: View {
 struct RecipeDetail_Previews: PreviewProvider {
     static var recipes = ViewModel().results
     static var previews: some View {
-        RecipeDetail(index: 716426, recipe: recipes[0] ).environmentObject(ViewModel())
+        RecipeDetail(index: 716426 ).environmentObject(ViewModel())
     }
 }
 

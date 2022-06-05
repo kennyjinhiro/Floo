@@ -28,7 +28,7 @@ struct RecipeExplore: View {
                                     .background(SwiftUI.Color.white)
 //                            Text(String(recipe.id))
                                 NavigationLink{
-                                    RecipeDetail(index: recipe.id, recipe: recipe)
+                                    RecipeDetail(index: recipe.id)
                                 } label:{
                                     RecipeCard(recipe: recipe)
                                 }.tag(recipe)
