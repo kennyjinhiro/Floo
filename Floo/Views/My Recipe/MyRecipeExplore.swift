@@ -28,9 +28,16 @@ struct MyRecipeExplore: View {
                 ScrollView(.horizontal){
                     
                 }.padding(.top, 12)
-//                NavigationLink{
-//
-//                }
+                Spacer()
+                NavigationLink{
+                    MyRecipeAddRecipe()
+                }label:{
+                    HStack(alignment: .center){
+                        Spacer()
+                        Text("Add Recipe").fontWeight(.bold).foregroundColor(.white)
+                        Spacer()
+                    }
+                }.padding(.all, 16).background(Color.blue).frame(height: 42, alignment: .center).cornerRadius(8.0).padding(.bottom, 24)
             }.padding(.horizontal)
                 .padding(.leading, 4)
             .navigationTitle("My Recipes")
