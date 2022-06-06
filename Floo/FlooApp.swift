@@ -15,15 +15,21 @@ struct FlooApp: App {
             TabView {
                 RecipeExplore()
                     .tabItem {
-                        Image(systemName: "safari.fill")
+                        Image(systemName: "magnifyingglass.circle")
                             .renderingMode(.template)
                         Text("Explore")
                     }
                 MyRecipeExplore()
                     .tabItem {
-                        Image(systemName: "fork.knife")
+                        Image(systemName: "book.circle")
                             .renderingMode(.template)
                         Text("My Recipes")
+                    }
+                ProfileView()
+                    .tabItem{
+                        Image(systemName: "person.circle.fill")
+                            .renderingMode(.template)
+                        Text("Profile")
                     }
             }.accentColor(.black)
         }
