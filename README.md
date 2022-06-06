@@ -2,18 +2,18 @@
 ### A Recipe iOS App based on Spoonacular API and your imagination!
 ### Credit: https://spoonacular.com/food-api
 #### Features
-5000+ Recipes to Search! 🍉 <br />
-Give a heart to your favorite recipe (and it is automatically saved)! ❤️ <br />
-Nutrition details onboard! 📖 <br />
-Input your own recipe! 😲 <br />
-Edit your profile! 🕶️ <br />
-And a lot more! <br />
+> 5000+ Recipes to Search! 🍉 <br />
+> Give a heart to your favorite recipe (and it is automatically saved)! ❤️ <br />
+> Nutrition details onboard! 📖 <br />
+> Input your own recipe! 😲 <br />
+> Edit your profile! 🕶️ <br />
+> And a lot more! <br />
 
 #### Contributors
 Team Floo:<br />
-github.com/JuJu222<br />
-github.com/SumahanZ<br />
-David Christian<br />
+> github.com/JuJu222<br />
+> github.com/SumahanZ<br />
+> David Christian<br />
 <br />
 PS: Floo helped with design and debugging; but, each member codes application individually.
 
