@@ -14,8 +14,7 @@ Team Floo:
 github.com/JuJu222
 github.com/SumahanZ
 David Christian
-
-#### Helped with design and debugging; but, each member codes application individually.
+PS: Floo helped with design and debugging; but, each member codes application individually.
 
 #### Demo
 GDrive Video: https://drive.google.com/file/d/1QWWMcsuZEBF0lQJWL8FhFx884uGNIA5q/view?usp=sharing <br />
