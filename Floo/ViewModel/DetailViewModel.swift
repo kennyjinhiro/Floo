@@ -68,7 +68,6 @@ class DetailViewModel: ObservableObject{
             recipe_id = []
         }
         print("Before Add:", recipe_id)
-        recipe_id = Array(Set(recipe_id))
         recipe_id.append(id)
         recipe_id = Array(Set(recipe_id))
         print("After Add:", recipe_id)
@@ -93,7 +92,6 @@ class DetailViewModel: ObservableObject{
             if (id == recipe){
                 recipe_id = Array(Set(recipe_id))
                 recipe_id.remove(at: index)
-                recipe_id = Array(Set(recipe_id))
             }
         }
         
