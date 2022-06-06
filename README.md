@@ -9,6 +9,14 @@ Input your own recipe! 😲 <br />
 Edit your profile! 🕶️ <br />
 And a lot more! <br />
 
+#### Contributors
+Team Floo:
+github.com/JuJu222
+github.com/SumahanZ
+David Christian
+
+#### Helped with design and debugging; but, each member codes application individually.
+
 #### Demo
 GDrive Video: https://drive.google.com/file/d/1QWWMcsuZEBF0lQJWL8FhFx884uGNIA5q/view?usp=sharing <br />
 
