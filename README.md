@@ -18,7 +18,7 @@ Team Floo:<br />
 PS: Floo helped with design and debugging; but, each member codes application individually.
 
 #### Demo
-GDrive Video: https://drive.google.com/file/d/1QWWMcsuZEBF0lQJWL8FhFx884uGNIA5q/view?usp=sharing <br />
+GDrive Video: [https://drive.google.com/file/d/1QWWMcsuZEBF0lQJWL8FhFx884uGNIA5q/view?usp=sharing](https://drive.google.com/file/d/1PSCQKlhfg_mnkyxWLl1RcMSO6MMAiHpc/view?usp=sharing) <br />
 
 #### Closing
 Report bugs to kenny.jinhiro@gmail.com with the header "Bug Floo: <What you see>" <br />
