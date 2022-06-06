@@ -11,12 +11,12 @@ struct ProfileView: View {
     @State var picker_select = 0
     let columns = [GridItem(),
                    GridItem()]
-    private let cardAndImageWidth: CGFloat = 170
-    private let cardHeight: CGFloat = 240
-    private let imageHeight: CGFloat = 170
+    private let cardAndImageWidth: CGFloat = 110
+    private let cardHeight: CGFloat = 160
+    private let imageHeight: CGFloat = 110
     private let cornerRadius: CGFloat = 5
-    @State var viewModel = MyRecipeViewModel()
-    @State var profileViewModel = ProfileViewModel()
+    @StateObject var viewModel = MyRecipeViewModel()
+    @StateObject var profileViewModel = ProfileViewModel()
     var body: some View {
         NavigationView{
         ZStack{
@@ -67,7 +67,7 @@ struct ProfileView: View {
                         VStack{
                             Picker(selection: $picker_select, label: Text(""), content: {
                                 Text("Chef Info").tag(0)
-                                Text("\(viewModel.fav_recipes.count) Recipes").tag(1)
+                                Text("\(viewModel.my_recipes.count) Recipes").tag(1)
                             }).pickerStyle(SegmentedPickerStyle()).frame(width: 280).padding(.top, 24)
                             ScrollView{
                                 //Chef Info
@@ -92,24 +92,23 @@ struct ProfileView: View {
                                         }
                                         }}else{
                                         LazyVGrid(columns: columns) {
-                                            ForEach(viewModel.fav_recipes, id: \.self){ recipe in
-                                                VStack {
-                                                        RoundedRectangle(cornerRadius: cornerRadius)
-                                                            .strokeBorder(SwiftUI.Color.white, lineWidth: 1)
-                                                            .frame(width: cardAndImageWidth, height: cardHeight)
-                                                            .background(SwiftUI.Color.white)
-                                                        NavigationLink{
-                                                            MyRecipeDetail(recipe: recipe)
-                                                        } label:{
-                                                            MyRecipeExploreCard(recipe: recipe)
-                                                        }.tag(recipe)
+                                            ForEach(viewModel.my_recipes, id: \.self){ recipe in
+                                                ZStack {
+                                                    RoundedRectangle(cornerRadius: cornerRadius)
+                                                        .strokeBorder(SwiftUI.Color.white, lineWidth: 2)
                                                         .frame(width: cardAndImageWidth, height: cardHeight)
-                                                        .cornerRadius(cornerRadius)
-                                                        .buttonStyle(PlainButtonStyle())
+                                                        .background(SwiftUI.Color.white)
+                                                    NavigationLink{
+                                                        MyRecipeDetail(recipe: recipe)
+                                                    } label:{
+                                                        ProfileRecipeCard(recipe: recipe)
+                                                    }.tag(recipe)
+                                                    .frame(width: cardAndImageWidth, height: cardHeight)
+                                                    .cornerRadius(cornerRadius)
                                                 }.padding(4)
                                                 }
-                                            }
-                                    }
+                                        }.padding(.top, 4)
+                                        }
                                 }.frame(width: 300)
                                 //Recipe
                                 

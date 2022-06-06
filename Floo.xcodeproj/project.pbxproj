@@ -17,6 +17,7 @@
 		847A3E80284DEF7600E10CEB /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E7F284DEF7600E10CEB /* EditProfile.swift */; };
 		847A3E82284DF1B200E10CEB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E81284DF1B200E10CEB /* ProfileViewModel.swift */; };
 		847A3E84284DF1F700E10CEB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E83284DF1F700E10CEB /* User.swift */; };
+		847A3E88284E114F00E10CEB /* ProfileRecipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A3E87284E114F00E10CEB /* ProfileRecipeCard.swift */; };
 		84EE5DC7283B3D56005864C1 /* FlooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5DC6283B3D56005864C1 /* FlooApp.swift */; };
 		84EE5DC9283B3D56005864C1 /* RecipeExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE5DC8283B3D56005864C1 /* RecipeExplore.swift */; };
 		84EE5DCB283B3D57005864C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EE5DCA283B3D57005864C1 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		847A3E7F284DEF7600E10CEB /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		847A3E81284DF1B200E10CEB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		847A3E83284DF1F700E10CEB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		847A3E87284E114F00E10CEB /* ProfileRecipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecipeCard.swift; sourceTree = "<group>"; };
 		84EE5DC3283B3D56005864C1 /* Floo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Floo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EE5DC6283B3D56005864C1 /* FlooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlooApp.swift; sourceTree = "<group>"; };
 		84EE5DC8283B3D56005864C1 /* RecipeExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeExplore.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				847A3E7D284D491300E10CEB /* ProfileView.swift */,
 				847A3E7F284DEF7600E10CEB /* EditProfile.swift */,
+				847A3E87284E114F00E10CEB /* ProfileRecipeCard.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EE5DF92847886F005864C1 /* DetailedRecipe.swift in Sources */,
+				847A3E88284E114F00E10CEB /* ProfileRecipeCard.swift in Sources */,
 				847A3E79284CF43D00E10CEB /* MyRecipeAddRecipe.swift in Sources */,
 				84EE5DEF2845B1BC005864C1 /* RecipeDetail.swift in Sources */,
 				84EE5DC9283B3D56005864C1 /* RecipeExplore.swift in Sources */,
