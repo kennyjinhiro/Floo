@@ -38,7 +38,7 @@ struct EditProfile: View {
                             .multilineTextAlignment(.leading)
                             .padding(.top, 24)
                         Text("About").fontWeight(.bold).padding(.top, 24)
-                        TextField("About", text: $user.job)
+                        TextField("About", text: $user.about)
                         Divider()
                         Text("Specialities").fontWeight(.bold).padding(.top, 24)
                         ForEach(0..<$user.speciality.count, id: \.self) { idx in

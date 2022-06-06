@@ -166,18 +166,23 @@ struct MyRecipeDetail: View {
                         .fontWeight(.bold)
                         .padding(.top, 4.0)
                         .padding(.horizontal)
-                    ForEach(recipe.extendedIngredients ?? [ExtendedIngredient]()) { ingredient in
-                        Text(ingredient.original ?? "Ingredient")
-                        .padding(.top, 4.0)
-                        .padding(.horizontal)
-                    }
+                        
+                        ForEach(Array((recipe.extendedIngredients ?? [ExtendedIngredient]()).enumerated()), id: \.offset) { i, ingredient in
+                        HStack{
+                            Text(ingredient.name ?? "Ingredient")
+                            Text(String(ingredient.amount ?? 0.0))
+                            Text(ingredient.unit ?? "Unknown")
+                            Spacer()
+                        }.padding(.top, 4.0)
+                            .padding(.horizontal)
+                        }
                     Text("Instructions")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.top, 4.0)
                         .padding(.horizontal)
                     if(recipe.analyzedInstructions?.count ?? 0 > 0) {
-                        ForEach(Array((recipe.analyzedInstructions?[0].steps ?? [Step]())), id: \.number) { instruction in
+                        ForEach(Array((recipe.analyzedInstructions?[0].steps ?? [Step]()).enumerated()), id: \.offset) { i, instruction in
                             Text(instruction.step ?? "")
                             .padding(.top, 4.0)
                             .padding(.horizontal)

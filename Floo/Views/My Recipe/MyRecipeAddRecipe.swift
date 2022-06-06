@@ -58,7 +58,7 @@ struct MyRecipeAddRecipe: View {
                             .padding(.top, 24)
                         ForEach(0..<idName.count, id: \.self) { idx in
                             HStack {
-                                TextField("Ingredient \(idx + 1)", text: $idName[idx])
+                                TextField("Ingredient \(idx + 1)", text: self.$idName[idx])
                                 Divider()
                                 TextField("Amount", text: $idAmount[idx])
                                 Divider()
@@ -87,7 +87,7 @@ struct MyRecipeAddRecipe: View {
                             .padding(.top, 24)
                         ForEach(0..<instructions.count, id: \.self) { idx in
                             HStack {
-                                TextField("Instruction \(idx + 1)", text: $instructions[idx])
+                                TextField("Instruction \(idx + 1)", text: self.$instructions[idx])
                                     
                             }
                             Divider().padding(.top, 12)
@@ -128,18 +128,17 @@ struct MyRecipeAddRecipe: View {
                             recipe.nutrition?.nutrients?[21].amount = Double(calcium)
                             var image_random:[String] = ["https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-eating-ingredients-1296x728-header.jpg", "https://images.theconversation.com/files/368263/original/file-20201109-22-lqiq5c.jpg?ixlib=rb-1.1.0&rect=10%2C0%2C6699%2C4476&q=45&auto=format&w=926&fit=clip","https://quizizz.com/_media/questions/d4625bf8-21a3-4ac8-a0c5-799957945510_900_900"]
                             recipe.image = image_random[Int.random(in: 0..<3)]
-                            for (idx,ingredient) in idName.enumerated() {
-                             var temp = ExtendedIngredient()
+                            for (i,ingredient) in idName.enumerated() {
+                                var temp = ExtendedIngredient()
                                 temp.name = ingredient
-                                temp.amount = Double(idAmount[idx])
-                                temp.unit = idUnit[idx]
+                                temp.amount = Double(idAmount[i])
+                                temp.unit = idUnit[i]
                                 recipe.extendedIngredients?.append(temp)
                             }
                             for instruction in instructions {
-                            
                                 var temp = Step()
                                 temp.step = instruction
-                            recipe.analyzedInstructions?[0].steps?.append(temp)
+                                recipe.analyzedInstructions?[0].steps?.append(temp)
                             }
                             let decoder = JSONDecoder()
                             if let data = UserDefaults.standard.value(forKey: "saved_recipe") as? Data {
@@ -148,7 +147,7 @@ struct MyRecipeAddRecipe: View {
                                     } else {
                                         my_recipes = []
                                     }
-                            let id = my_recipes.count + 1 ?? 999999999
+                            let id = my_recipes.count + 1
                             recipe.id = id + 1
                             my_recipes.append(recipe)
                             let encoder = JSONEncoder()

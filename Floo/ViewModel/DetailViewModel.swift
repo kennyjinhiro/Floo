@@ -67,6 +67,7 @@ class DetailViewModel: ObservableObject{
         } else {
             recipe_id = []
         }
+        objectWillChange.send()
         print("Before Add:", recipe_id)
         recipe_id.append(id)
         recipe_id = Array(Set(recipe_id))
@@ -87,11 +88,11 @@ class DetailViewModel: ObservableObject{
         } else {
             recipe_id = []
         }
-        
+        objectWillChange.send()
         for (index, recipe) in recipe_id.enumerated(){
-            if (id == recipe){
-                recipe_id = Array(Set(recipe_id))
+            if (recipe == id){
                 recipe_id.remove(at: index)
+                recipe_id = Array(Set(recipe_id))
             }
         }
         
