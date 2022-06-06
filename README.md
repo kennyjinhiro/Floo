@@ -10,10 +10,10 @@ Edit your profile! 🕶️ <br />
 And a lot more! <br />
 
 #### Contributors
-Team Floo:
-github.com/JuJu222
-github.com/SumahanZ
-David Christian
+Team Floo:<br />
+github.com/JuJu222<br />
+github.com/SumahanZ<br />
+David Christian<br />
 PS: Floo helped with design and debugging; but, each member codes application individually.
 
 #### Demo
